@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>CIS*2750 A4: Final Assignment!</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+    tbody {
+      overflow-y: visible;
+    }
+    </style>
+
+    <!-- Load jquery, bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" type="text/css" href="/style.css">
+    <!-- Custom CSS End -->
+</head>
+<br>
+<body>
+    <h3>CIS*2750 A4: Login Page</h3>
+    by Karina Garmendez W21.<br>
+    <div id="openHeader"> </div>
+    <hr>
+    <form ref='login-form' 
+        id='login-form'>
+        <div id="popup"> </div>
+        <div class="form-group">
+            <h5>Username</h5>
+            <input type="text" class="form-control" id="usernameTxt" placeholder="Enter username">
+            <br>
+            <h5>Password</h5>
+            <input type="password" class="form-control" id="passwordTxt" placeholder="Enter password">
+            <br>
+            <h5>Database Name</h5>
+            <input type="text" class="form-control" id="databaseTxt" placeholder="Name of your database">
+        </div>
+        <div class="form-group">
+            <h6 id="whaaat">Submit your credientials, then login!</h6>
+            <input type='button' id="login-btn" value="submit">
+            <br>
+          </div>
+        <div style="text-align: center;" class="form-group">
+          <button id="login-to-index" style="align-self: center;">Login</button>
+        </div>
+    </form>
+    <br>
+    <!-- <script src="/index.js"></script> -->
+</body>
+<br>
+<div id="main-index">
+<body>
+    <h3>CIS*2750 Database Info</h3>
+    <div id="filleeee"> </div>
+    <hr>
+    <body>
+      <meta name="description" content="Gpx simple">
+      <meta name="keywords" content="cis2750">
+      <meta name="author" content="Karina Garmendez">
+      <!-- File Log Table -->
+      <div scrolling='auto' id="fileInfoDiv">
+      <table id="t0">
+        <tr>
+          <th colspan="6">File Log Table</th>
+        </tr>
+        <tr>
+          <th>Filename</th>
+          <th>Version</th>
+          <th>Creator</th>
+          <th>Number of Waypoints</th>
+          <th>Number of Routes</th>
+          <th>Number of Tracks</th>
+        </tr>
+        <tr>
+          <td><a href="/uploads/simple.gpx" download="simple.gpx">simple.gpx</a></td>
+          <td>1.1</td>
+          <td>Denis Nikitenko 2019.08.08</td>
+          <td>3</td>
+          <td>1</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>
+            <a href="/uploads/Reyn To UC1 (390).gpx" download="Reyn To UC1 (390).gpx">
+              Reyn To UC1 (390).gpx</a>
+          </td>
+          <td>1.1</td>
+          <td>Denis Nikitenko 2019.09.08</td>
+          <td>4</td>
+          <td>1</td>
+          <td>1</td>
+        </tr>
+      </table>
+    </div>
+         <form ref='uploadGPX' id='uploadGPX' action='/upload' method='post' encType="multipart/form-data">
+           <div class="form-group">
+           	<input type="file" name="uploadFile" class="btn btn-secondary">
+           	<input type='submit' style="background-color: rgb(81, 82, 84); color: white" value='Upload' class="btn btn-secondary" id="addGPX">
+           </div>
+        </form>
+        <label for="gpx-file" style="position: absolute;">Select a Gpx doc:</label>
+      <br>
+          <form ref='gpxViewing' id='gpxViewing' action='/upload' method='post' encType="multipart/form-data">
+                <div class="form-group">
+                  <select name="Gpx file" id="gpx-file">
+                    <option value="validGpx">simple.gpx</option>
+                    <option value="validGpx">Reyn To UC1 (390).gpx</option>
+                  </select>
+                  <input type="button" value="Select" id="Gpx-btn"></input>
+                </div>
+         </form>
+      </body>
+       <br>
+  <!-- GPX View Panel Table -->
+       <div scrolling='scroll'>
+      <table id="t1">
+        <tr>
+          <th colspan="6" id="gpxView">GPX View Panel</th>
+        </tr>
+        <tr>
+          <th>Component</th>
+          <th>Name</th>
+          <th>Number of points</th>
+          <th>Length</th>
+          <th>Loop</th>
+          <th>Actions</th>
+        </tr>
+        <tr>
+          <td>Route 1</td>
+          <td id="route-id">Some route</td>
+          <td>3</td>
+          <td>160m</td>
+          <td>FALSE</td>
+          <td>
+            <input type='submit' value='Show Other Data'>
+            <input type='submit' value='Rename' id="rename-btn">
+          </td>
+        </tr>
+        <tr>
+          <td>Track 1</td>
+          <td>Mount Steele Trail</td>
+          <td>7</td>
+          <td>340m</td>
+          <td>FALSE</td>
+          <td>
+            <input type='submit' value='Show Other Data' id="show-other">
+            <input type='submit' value='Rename' id="rename-btn2">
+          </td>
+        </tr>
+      </table>
+    </div>
+    <!-- End of GPX View, GPX create here -->
+    <div>
+      <form ref='create-gpx' id='create-gpx' action='/crete-gpx' method='post' encType="multipart/form-data">
+        <br>
+        <hr>
+        <div><h3 for='create-gpx' align= 'center'>Create new gpx doc</h3></div>
+        <hr>
+        <div><label for='create-gpx'>Enter filename:</label>
+        <input type='text' name="gpxFilenew" id='newGpx'></div>
+        <div><label for='create-gpx'>Enter creator:</label>
+        <input type='text' name="gpxCreatornew" id='newCreator'></div>
+        <input type='button' value='Create GPX'>
+      </form>
+    </div>
+    <!-- Adding route -->
+    <div>
+      <hr>
+      <h3 align='center'>Add a route</h3>
+      <h5 align='center'>Select file from menu</h5>
+      <hr>
+      <div>
+      <select name="Gpx file" id="route-add">
+        <option value="validGpx">simple.gpx</option>
+        <option value="validGpx">Memorial_Forest_Loop(0rt_1trk_1seg_440m).gpx</option>
+      </select>
+    </div>
+      <div>
+      <form ref='uploadRouteName' id='uploadRoute' action='/addRoute'
+        method='post'
+        encType="multipart/form-data">
+      <div>
+        <label>Enter name of route:</label>
+        <input type='text'>
+        <input type='button' value='Add route'>
+      </div>
+    <!-- Adding waypoint info -->
+    <div>
+        <br>
+        <div><h5 for='create-gpx' align= 'center'>Create new Waypoints</h5></div>
+        <div><label for='create-gpx'>Enter latitude:</label>
+        <input type='text' name="gpxFilenew"></div>
+        <div><label for='create-gpx'>Enter longitude:</label>
+        <input type='text' name="gpxFilenew"></div>
+      </form>
+    </div>
+    </div>
+    <input type='button' value='Add waypoint'>
+  </div>
+
+<!-- Finding path between -->
+  <div>
+    <div>
+    <form id='finding-wpt' action='/find-wpt'
+    method='post' encType="multipart/form-data">
+    </form>
+  </div>
+  <hr>
+  <h3 align='center'>Find Path Between</h3>
+  <hr>
+  <div>
+    <label>Starting Lat</label>
+    <input type='text'>
+    <br>
+    <label>Starting Lon</label>
+    <input type='text'>
+    <br>
+    <label>Ending Lat</label>
+    <input type='text'>
+    <br>
+    <label>Ending Lon</label>
+    <input type='text'>
+    <br>
+    <label>Margin of Error</label>
+    <input type='text'>
+    <br>
+    <input type='button' value='Find path'>
+    <br>
+  </div>
+  <hr>
+    <div>
+    <table>
+      <thead>
+        <tr>
+          <th>Component Number</th>
+          <th>Component Name</th>
+          <th>Number of Waypoints</th>
+          <th>Length</th>
+          <th>Loop</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+        <td>Route: 8</td>
+        <td>Name: someRte</td>
+        <td>10</td>
+        <td>46578</td>
+        <td>true</td>
+        </tr>
+    </tbody>
+    </table>
+  </div>
+  </div>
+
+    <p></p>
+
+    <hr>
+    <div id="blah">I am blah</div>
+    <hr>
+    <form ref='someform'
+          id='someform'>
+          <div class="form-group">
+                <label for="entryBox">Last Name</label>
+                <input type="text" class="form-control" id="entryBox" value="Value" placeholder="Placeholder">
+          </div>
+        <div class="form-group">
+            <input type='submit' class="btn btn-secondary">
+        </div>
+    </form>
+
+    <form ref='uploadForm'
+		id='uploadForm'
+      action='/upload'
+      method='post'
+      encType="multipart/form-data">
+      <div class="form-group">
+      	<input type="file" name="uploadFile" class="btn btn-secondary">
+      	<input type='submit' value='Upload' class="btn btn-secondary">
+      </div>
+    </form>
+    <br>
+    <!-- Leave me at the bottom of body -->
+    <script src="/index.js"></script>
+</body>
+
+</div>
+</html>

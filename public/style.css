@@ -1,0 +1,71 @@
+html {
+    width: 80%;
+    height: 80%;
+    min-height: 80%;
+    margin: 0 auto;
+    font-size: 16px;
+    background-color: #FFFFFF;
+}
+body {
+    height: 100%;
+    min-height: 100%;
+    line-height: 1.75;
+    background-color: #FFFFFF;
+}
+div {
+  padding: 10px;
+}
+#main-index {
+  display: none;
+}
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  text-align: center;
+  height: 10px;
+}
+tbody {
+  overflow-y: scroll;
+}
+th, td {
+  border: 1px solid #9a9ba4;
+  text-align: center;
+  padding: 5px;
+}
+#t0 tr:nth-child(odd) {
+  background-color: #ededed;
+}
+#t1 tr:nth-child(odd) {
+  background-color: #f0f1f8;
+}
+a:link:hover {
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    text-decoration: underline;
+    cursor: pointer;
+    cursor: hand;
+}
+input[type=submit], button {
+    cursor: pointer;
+    cursor: hand;
+}
+@media(max-width: 900px) {
+    html {
+        font-size: 14px !important;
+        width: 80% !important;
+    }
+}
+@media(max-width: 480px) {
+    html {
+        font-size: 12px !important;
+        width: 90% !important;
+    }
+}
+@media(max-width: 320px) {
+    html {
+        font-size: 12px !important;
+        width: 100% !important;
+    }
+}
